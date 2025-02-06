@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login & Signup</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="tailwind.config.js">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    .custom-shadow {
+      box-shadow: 0px 10px 100px 40px rgba(0, 0, 0, 0.5);
+    }
+  </style>
+</head>
+<body class="flex justify-center items-center min-h-screen bg-[url('4kforest.jpeg')] bg-cover bg-center h-screen w-full">
+  <!-- Login Form -->
+  <div id="login-form" class="custom-shadow bg-white-100 p-6 rounded-lg w-96">
+    <h2 class="text-2xl font-bold text-center mb-4">Login</h2>
+    <form>
+      <div class="relative z-0 w-full mb-5">
+          <input type="email"  id="login-email" class="block py-2.5 px-0 w-full text-sm !text-white bg-transparent border-0 border-b-2 border-gray-300 appearance-none  font-medium dark:border-white dark:focus:border-white focus:outline-none focus:ring-0 focus:border-white peer" placeholder=" " required />
+          <label for="login-email" class="peer-focus:font-medium absolute text-sm text-white dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+          <p id="disclaimer-login" class="text-[red] text-sm font-semibold mt-1"></p>
+        </div>
+     
+      <div class="relative z-0 w-full mb-5">
+        <input type="password" id="login-password" class="block py-2.5 px-0 w-full text-sm bg-transparent border-0 border-b-2 border-gray-300 font-medium appearance-none  !text-white  focus:outline-none focus:ring-0  peer" placeholder=" " required />
+        <label for="login-password" class="peer-focus:font-medium absolute text-sm text-white dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+        <p id="disclaimer-passowrd-login" class="text-[red] text-sm font-semibold mt-1 shadow-2xl"></p>
+      </div>
+
+      <button type="submit" id="login-btn" class="w-full hover:bg-green-800 bg-green-900 shadow-[0_0_10px_2px_rgba(255,255,255,0.6)] transition-shadow duration-300 text-white py-2 mt-2 rounded-md font-medium">Login</button>
+      <p class="text-sm text-center mt-4 text-white">Don't have an account? <span id="to-signup" class="hover:text-green-500 cursor-pointer ml-1 text-[#8fe28f]">Sign up</span></p>
+    </form>
+  </div>
+
+  <!-- Signup Form -->
+  <div id="signup-form" class="hidden custom-shadow  p-6 rounded-lg w-96">
+    <h2 class="text-2xl font-bold text-center mb-4">Sign Up</h2>
+    <form>
+      <div class="relative z-0 w-full mb-5">
+        <input type="text" id="signup-name" class="block py-2.5 px-0 w-full font-medium text-sm !text-white  bg-transparent border-0 border-b-2 border-gray-300 appearance-none k dark:border-white  focus:outline-none focus:ring-0  peer" placeholder=" " >
+        <label for="signup-name" class="peer-focus:font-medium absolute text-sm text-white dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Name</label>
+        <p id="disclaimer-name" class="text-[red] text-sm font-semibold mt-1"></p>
+      </div>
+
+
+    <div class="relative z-0 w-full mb-5">
+      <input type="email" id="signup-email" class="block py-2.5 px-0 w-full font-medium text-sm  bg-transparent border-0 border-b-2 !text-white border-gray-300 appearance-none  dark:border-white  focus:outline-none focus:ring-0  peer" placeholder=" "  />
+      <label for="signup-email" class="peer-focus:font-medium absolute text-sm text-white dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Email</label>
+      <p id="disclaimer-signUp" class="text-[red] text-sm font-semibold mt-1"></p>
+    </div>
+   
+    <div class="relative z-0 w-full mb-5">
+      <input type="password" id="signup-password" class="block py-2.5 px-0 font-medium w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 !text-white appearance-none  dark:border-white  focus:outline-none focus:ring-0  peer" placeholder=" " />
+      <label for="signup-password" class="peer-focus:font-medium absolute text-sm text-white dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Password</label>
+      <p id="disclaimer-password-signUp" class="text-[red] text-sm font-semibold mt-1 shadow-2xl"></p>
+    </div>
+
+    <div class="relative z-0 w-full mb-5">
+      <input type="password" id="confirm-password" class="block py-2.5 px-0 font-medium w-full text-sm  bg-transparent border-0 border-b-2 border-gray-300 !text-white appearance-none  dark:border-white  focus:outline-none focus:ring-0  peer" placeholder=" "  />
+      <label for="confirm-password" class="peer-focus:font-medium absolute text-sm text-white dark:text-white duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:start-0 rtl:peer-focus:translate-x-1/4 rtl:peer-focus:left-auto peer-focus:text-white peer-focus:dark:text-white peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6">Confirm Password</label>
+      <p id="disclaimer-confirm-password" class="text-[red] text-sm font-semibold mt-1 shadow-2xl"></p>
+    </div>
+
+    <button type="submit" id="signup-btn" class="w-full hover:bg-green-800 bg-green-900 shadow-[0_0_10px_2px_rgba(255,255,255,0.6)] transition-shadow duration-300 text-white py-2 mt-2 rounded-md font-medium">Sign Up</button>
+    <p class="text-sm text-center mt-4 text-white">Already Have an Account?<span id="to-login" class="hover:text-green-500 cursor-pointer ml-2 text-[#8fe28f]">Login</span></p>
+    </form>
+  </div>
+
+  <div class="min-w-60 p-4 mb-4 text-sm text-green-800 h rounded-lg hidden bg-green-50 dark:bg-gray-800 border-[1px] border-green-700 dark:text-green-400 items-center absolute bottom-0 right-3" id="SignedIn-Alert" role="alert">
+   <svg class="shrink-0 inline w-4 h-4 me-1" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+    <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+  </svg>
+  <span class="sr-only">Info</span>
+    <span class="font-medium text-start">Signup successful!</span>
+  </div>
+
+  <div class="min-w-60 items-center hidden p-4 mb-4 text-sm text-red-800 border border-red-300 h rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800 absolute bottom-0 right-3" id="login-alert" role="alert">
+    <svg class="shrink-0 inline w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    </svg>
+    <span class="sr-only">Info</span>
+      <span class="font-medium text-start">Failed to login!</span>
+  </div>
+
+  <div class="min-w-60 items-center hidden p-4 mb-4 text-sm text-red-800 border border-red-300 h rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400 dark:border-red-800 absolute bottom-0 right-3" id="emailAlreadyExistsError" role="alert">
+    <svg class="shrink-0 inline w-4 h-4 me-2" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="currentColor" viewBox="0 0 20 20">
+      <path d="M10 .5a9.5 9.5 0 1 0 9.5 9.5A9.51 9.51 0 0 0 10 .5ZM9.5 4a1.5 1.5 0 1 1 0 3 1.5 1.5 0 0 1 0-3ZM12 15H8a1 1 0 0 1 0-2h1v-3H8a1 1 0 0 1 0-2h2a1 1 0 0 1 1 1v4h1a1 1 0 0 1 0 2Z"/>
+    </svg>
+    <span class="sr-only">Info</span>
+      <span class="font-medium text-start">User Already Exists</span>
+  </div>
+
+<script src="index.js"></script>
+</body>
+</html>
