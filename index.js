@@ -137,133 +137,66 @@ const CreateUser = (e) => {
 };
 
 // USER LOGIN
-// const login = (e) => {
-//   e.preventDefault();
-
-//   const email = loginEmail.value
-//   const password = loginPassword.value
-
-//   let hasError = false;
-//   if (!loginEmail.value) {
-//     loginDisclaimer.textContent = "Email is required!";
-//     hasError = true;
-//   } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(loginEmail.value)) {
-//     loginDisclaimer.textContent = "Email is invalid.";
-//     hasError = true;
-//   } else {
-//     loginDisclaimer.textContent = "";
-//     hasError = false;
-//   }
-
-  
-//   if(!password){
-//     passwordLogin.textContent = "Please enter your password";
-//   }
-//   else if (password.length < 8) {
-//     passwordLogin.textContent = passwordErrorMessage;
-//   } 
-//   else {
-//     passwordLogin.textContent = "";
-   
-//   }
-
-//   console.log(email,password,"email and passwrod");
-
-//   const findUser = users.find((user)=>user.email == email)
-//   console.log(findUser);
-//   if(!findUser) {
-//     loginAlert.classList.remove("hidden")
-//     setTimeout(() => {
-//       loginAlert.classList.add("hidden")
-//     }, 3000); 
-//     return
-//   } 
- 
-//   localStorage.setItem("loggedInUser", JSON.stringify(findUser)); // Store session
-//   window.location.href = "/home.html"
- 
-//   const authToken = Math.random().toString(36).substr(2) + Date.now().toString(36);
-
-//   // Store user and token in localStorage
-//   localStorage.setItem("loggedInUser", JSON.stringify(findUser));
-//   localStorage.setItem("authToken", authToken);
-
-//   // Redirect to home page
-//   window.location.href = "/home.html";
-// };
-// const authToken = localStorage.getItem("authToken");
-
-// if (!authToken) {
-//   // Redirect to login page if no token is found
-//   window.location.href = "/home.html";
-// }
-
 const login = (e) => {
   e.preventDefault();
 
-  const email = loginEmail.value;
-  const password = loginPassword.value;
+  const email = loginEmail.value
+  const password = loginPassword.value
 
   let hasError = false;
-
-  // ✅ Email Validation
-  if (!email) {
+  if (!loginEmail.value) {
     loginDisclaimer.textContent = "Email is required!";
     hasError = true;
-  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+  } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(loginEmail.value)) {
     loginDisclaimer.textContent = "Email is invalid.";
     hasError = true;
   } else {
     loginDisclaimer.textContent = "";
+    hasError = false;
   }
 
-  // ✅ Password Validation
-  if (!password) {
+  
+  if(!password){
     passwordLogin.textContent = "Please enter your password";
-    hasError = true;
-  } else if (password.length < 8) {
-    passwordLogin.textContent = "Password must be at least 8 characters";
-    hasError = true;
-  } else {
+  }
+  else if (password.length < 8) {
+    passwordLogin.textContent = passwordErrorMessage;
+  } 
+  else {
     passwordLogin.textContent = "";
+   
   }
 
-  // ✅ Stop execution if validation fails
-  if (hasError) return;
+  console.log(email,password,"email and passwrod");
 
-  console.log(email, password, "email and password");
-
-  // ✅ Find user in database
-  const findUser = users.find((user) => user.email === email);
+  const findUser = users.find((user)=>user.email == email)
   console.log(findUser);
-
-  if (!findUser) {
-    loginAlert.classList.remove("hidden");
+  if(!findUser) {
+    loginAlert.classList.remove("hidden")
     setTimeout(() => {
-      loginAlert.classList.add("hidden");
-    }, 3000);
-    return;
-  }
-
-  // ✅ Generate a unique authentication token
+      loginAlert.classList.add("hidden")
+    }, 3000); 
+    return
+  } 
+ 
+  localStorage.setItem("loggedInUser", JSON.stringify(findUser)); // Store session
+  window.location.href = "/home.html"
+ 
   const authToken = Math.random().toString(36).substr(2) + Date.now().toString(36);
 
-  // ✅ Store user and token in localStorage
+  // Store user and token in localStorage
   localStorage.setItem("loggedInUser", JSON.stringify(findUser));
   localStorage.setItem("authToken", authToken);
 
-  // ✅ Redirect to home page
+  // Redirect to home page
   window.location.href = "/home.html";
 };
-
-// ✅ Check authentication on page load
 const authToken = localStorage.getItem("authToken");
 
 if (!authToken) {
   // Redirect to login page if no token is found
-  window.location.href = "/index.html";
+  window.location.href = "/home.html";
 }
-
 
 // ADD EVENTLISTENERS
 signupBtn.addEventListener("click", CreateUser);
